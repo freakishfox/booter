@@ -11,6 +11,9 @@
 // 在指定进程中获取模块加载地址
 unsigned long get_module_base(pid_t pid, const char *module_name);
 
+//在当前进程中dump模块
+void dump_module(char* module_name, size_t module_size, char* save_path);
+
 //字符串分割
 std::vector<std::string> split_string(char *src, const char *delmiter);
 

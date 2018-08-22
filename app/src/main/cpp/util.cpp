@@ -2,6 +2,7 @@
 // Created by dfzhang on 2018/4/19.
 //
 
+#include <unistd.h>
 #include "util.h"
 #include "Comm.h"
 
@@ -107,4 +108,16 @@ std::string bytes_to_hex(char *src, size_t size){
     }
 
     return rs;
+}
+
+void dump_module(char* module_name, size_t module_size, char* save_path){
+    unsigned long module_base = get_module_base(getpid(), module_name);
+    if(module_base){
+        FILE* f = fopen(save_path, "wb+");
+        if(f){
+            fwrite((void*)module_base, 1, module_size, f);
+            fclose(f);
+            LOG("module dump finished=>%s", module_name);
+        }
+    }
 }
