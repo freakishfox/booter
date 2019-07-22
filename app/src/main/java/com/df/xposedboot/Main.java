@@ -15,9 +15,9 @@ public class Main implements IXposedHookLoadPackage{
     private final String XposedModule = "com.df.xposedboot";
 
     //!!!!!!!!!!注意这里是必须要修改的
-    private final String packageName = "cmccwm.mobilemusic";
+    private final String packageName = "xxx";
 
-    private final boolean isNativeHookEnable = true;
+    private final boolean isNativeHookEnable = false;
 
     private void log(String logTxt){
         XposedBridge.log("[XposedBooter]" + logTxt);
